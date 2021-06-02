@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_02_214635) do
+ActiveRecord::Schema.define(version: 2021_06_02_215413) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer "speaker1_id", null: false
@@ -26,7 +26,9 @@ ActiveRecord::Schema.define(version: 2021_06_02_214635) do
     t.integer "conversation_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "sender_id", null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +42,5 @@ ActiveRecord::Schema.define(version: 2021_06_02_214635) do
   add_foreign_key "conversations", "users", column: "speaker1_id"
   add_foreign_key "conversations", "users", column: "speaker2_id"
   add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users", column: "sender_id"
 end

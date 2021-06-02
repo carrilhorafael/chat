@@ -1,5 +1,5 @@
 class ConversationSerializer < ActiveModel::Serializer
   attributes :id
-  has_one :user
-  has_one :user
+  belongs_to :speaker2, class_name: "User"
+  belongs_to :speaker1, class_name: "User"
 end
