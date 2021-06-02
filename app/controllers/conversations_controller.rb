@@ -15,6 +15,8 @@ class ConversationsController < ApplicationController
 
   # POST /conversations
   def create
+    conversation_exists?
+    
     @conversation = Conversation.new(conversation_params)
 
     if @conversation.save
@@ -40,12 +42,15 @@ class ConversationsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def conversation_exists?
+      @conversation = Conversation.find_by(name:)
+    end
     def set_conversation
       @conversation = Conversation.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def conversation_params
-      params.require(:conversation).permit(:speaker1_id, :speaker2_id)
+      params.require(:conversation).permit(:speaker_id)
     end
 end
