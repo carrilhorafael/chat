@@ -4,7 +4,7 @@ class AuthController < ApplicationController
     if @user&.authenticate(params[:user][:password])
       token = JsonWebToken.encode({user_id: @user.id})
 
-      render json: {token: token}
+      render json: {token: token, user: @user}
     else
       render json: {errors: "Não autenticado"}, status: 401
     end
