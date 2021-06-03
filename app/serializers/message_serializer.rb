@@ -1,5 +1,5 @@
 class MessageSerializer < ActiveModel::Serializer
-  attributes :id, :content, :name_sender, :id_sender
+  attributes :id, :content, :created_at, :name_sender, :id_sender
   belongs_to :conversation
   def name_sender
     self.object.sender.name
