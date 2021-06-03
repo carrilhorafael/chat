@@ -1,8 +1,8 @@
 class ConversationChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
-    @room = params[:room]
-    stream_for @room
+    @conversation = params[:conversation]
+    stream_for @conversation
   end
 
   def unsubscribed
