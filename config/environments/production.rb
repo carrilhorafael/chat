@@ -57,7 +57,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   config.web_socket_server_url = "wss://chatin-vivo.herokuapp.com/cable"
-  config.action_cable.allowed_request_origins = ["http://chatinfront.herokuapp.com/", "http://localhost:3000", "http://localhost:3001"]
+  config.action_cable.allowed_request_origins = ["http://chatinfront.herokuapp.com", "http://localhost:3000", "http://localhost:3001"]
  
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
